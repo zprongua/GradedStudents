@@ -56,11 +56,7 @@ public class Classroom {
     public void removeStudent(String firstName, String lastName) {
         if (students!=null) {
             ArrayList<Student> stu = new ArrayList<>(Arrays.asList(students));
-            for (Student s : stu) {
-                if (s.firstName.equals(firstName) && s.lastName.equals(lastName)) {
-                    stu.remove(s);
-                }
-            }
+            stu.removeIf(s -> s.firstName.equals(firstName) && s.lastName.equals(lastName));
             students = stu.toArray(new Student[0]);
         }
     }
@@ -81,9 +77,9 @@ public class Classroom {
 
     public void setCurve() {
         sortStudentsByScores();
-        Double high = students[0].getAverageExamScore();
-        Double low = students[students.length-1].getAverageExamScore();
-        Double dif = high - low;
+        double high = students[0].getAverageExamScore();
+        double low = students[students.length-1].getAverageExamScore();
+        double dif = high - low;
         a = dif*0.9 + low;
         b = dif*0.71 + low;
         c = dif*0.51 + low;

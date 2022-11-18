@@ -2,7 +2,6 @@ package io.zipcoder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class Student extends Classroom {
     String firstName;
@@ -24,13 +23,13 @@ public class Student extends Classroom {
     }
 
     public String getExamScores() {
-        String str = "Exam Scores:";
+        StringBuilder str = new StringBuilder("Exam Scores:");
         int counter = 1;
         for (Double d : examScores) {
-            str += ("\n\tExam "+counter+": "+d);
+            str.append("\n\tExam ").append(counter).append(": ").append(d);
             counter++;
         }
-        return str;
+        return str.toString();
     }
 
     public void setExamScore(int e, Double score) {
@@ -49,8 +48,4 @@ public class Student extends Classroom {
     public String toString() {
         return "Student: "+firstName+" "+lastName+"\nAverage Score: "+getAverageExamScore()+"\n"+getExamScores();
     }
-
-//    public static Comparator<Student> nameComparator = Comparator.comparing(o -> o.firstName);
-
-//    public static Comparator<Student> scoreComparator = (o1, o2) -> (int) (o2.getAverageExamScore() - o1.getAverageExamScore());
 }
