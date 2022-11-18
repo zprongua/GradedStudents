@@ -50,7 +50,7 @@ public class Student extends Classroom {
         return "Student: "+firstName+" "+lastName+"\nAverage Score: "+getAverageExamScore()+"\n"+getExamScores();
     }
 
-    public static Comparator<Student> nameComparator = Comparator.comparing(o -> o.firstName);
+//    public static Comparator<Student> nameComparator = Comparator.comparing(o -> o.firstName);
 
-    public static Comparator<Student> scoreComparator = (o1, o2) -> (int) Math.round(o2.getAverageExamScore() - o1.getAverageExamScore());
+//    public static Comparator<Student> scoreComparator = (o1, o2) -> (int) (o2.getAverageExamScore() - o1.getAverageExamScore());
 }

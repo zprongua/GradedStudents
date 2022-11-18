@@ -2,8 +2,8 @@ package io.zipcoder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Classroom {
     Student[] students;
@@ -13,6 +13,8 @@ public class Classroom {
     Double d;
     Double f;
     HashMap<Student, String> gb = new HashMap<>();
+    Comparator<Student> nameComparator = Comparator.comparing(o -> o.firstName);
+    Comparator<Student> scoreComparator = (o1, o2) -> (int) (o2.getAverageExamScore() - o1.getAverageExamScore());
 
     public Classroom() {
         this.students = new Student[30];
@@ -70,11 +72,11 @@ public class Classroom {
 
     public void sortStudentsByScores() {
         sortStudentsByName();
-        Arrays.sort(students, Student.scoreComparator);
+        Arrays.sort(students, scoreComparator);
     }
 
     public void sortStudentsByName() {
-        Arrays.sort(students, Student.nameComparator);
+        Arrays.sort(students, nameComparator);
     }
 
     public void setCurve() {
@@ -95,7 +97,6 @@ public class Classroom {
         for (Student s : students) {
             String grade = assignGrade(s.getAverageExamScore());
             gb.put(s, grade);
-//            System.out.println(s.firstName+ "\t" +gb.get(s)+"\t"+s.getAverageExamScore());
         }
 
     }

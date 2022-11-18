@@ -56,9 +56,9 @@ public class ClassroomTest {
 
     @Test
     public void testGetStudentsByScore() {
-        Double[] s1Scores = {100.0, 150.0};
+        Double[] s1Scores = {100.1, 150.0};
         Double[] s2Scores = {225.0, 25.0};
-        Double[] s3Scores = {125.0, 125.0};
+        Double[] s3Scores = {125.5, 125.0};
 
         Student s1 = new Student("Gamma", "Zulu", s1Scores);
         Student s2 = new Student("Bravo", "Yankee", s2Scores);
